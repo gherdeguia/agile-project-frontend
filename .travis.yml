@@ -1,16 +1,14 @@
 language: node_js
 dist: trusty
 node_js:
-  - "14"
-
+- '14'
 script:
-  - npm test
-  - npm run build
-
+- npm test
+- npm run build
 deploy:
   provider: heroku
   api_key:
-    secure: ba912765-df3c-4d60-81ca-773f29f36e2c
-  app: agile-project-frontend
+    secure: QKSxVo82HlhqhTB6uPnP2pR9ah8IvDq4kuB2DVWPxEBJ2YE0gH7ONEDj4hgruQc7XLy5X+D2AWwQxo3rQfCnAgRVhY5fUlfMvISKgRExeXbNWTiivg40iEn5R6Rgy52jsmbZohzA0VPvjtQAqXSnaOaYLMjrHDpKBUIIZigEBi2GV8kr0EKB7Sp7eGlMjzJx21XXftCKiuQDdGbzduMSNjZMLAPOd2ctaudqU/XyN7OMRvLOSFjxsccczlVAhUf57mPuPkdWqp8qiB5S5F4gYR264iOlGTW1+PW9azIq3OKxjfSY+LwHhj5eI92hSOauV7aoIFgoZ3jfrykizHKwsQedV8eGbsbag/tz4/pBl7yexyi+sbY+Qs/aO3XdEap0aydJjDxEoKh3a5ZHBARjTpLws5GHE+92qCWZzncYuFHbK2pVOPfy31pFTSfqMkp9075266lBSEssHekiIb78/GaLRmd64bjvOMf0uL6ZHFGfNynP9yZ5qB1MTQijtBgP8II+zftWS7HE5GLVlMEExv1b432hJLkKLFeHTOtccgwYAPboSouEocC+du3MO3o35DDoLA5TqTCP0ym/9+oazwrYjYtumhBX0VPXqKpPbVz2Dvva8dVXR4VFlv9AhTIJfqRRx1NOB5RyyJIvlie+Hz1SJ2rH9TbLpYBId+gHqv0=
+  app: gherdeguia/agile-project-frontend
   on:
     repo: gherdeguia/agile-project-frontend
