@@ -1,9 +1,10 @@
 import React from 'react'
+import SearchBar from "./SearchBar";
 
 function Landing() {
     return (
         <div>
-            Landing
+            <SearchBar/>
         </div>
     )
 }
