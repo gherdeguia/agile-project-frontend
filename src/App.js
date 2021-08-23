@@ -1,8 +1,6 @@
 import './App.css';
 import logo from "./logo.png";
-import Header from './features/components/Header/Header';
 import Landing from './features/components/Landing/Landing';
-import Footer from "./features/components/Footer/Footer";
 import { Route, Link, BrowserRouter, Switch } from "react-router-dom";
 import {Container, Nav, Navbar} from "react-bootstrap";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
@@ -24,11 +22,11 @@ function App() {
                       />
                   </Navbar.Brand>
                   <Nav>
-                      <Nav.Link>
+                      <Link>
                           <b>Sign up</b>&nbsp;
                           <FontAwesomeIcon icon={faUserCircle}/>
 
-                      </Nav.Link>
+                      </Link>
                   </Nav>
               </Container>
           </Navbar>
