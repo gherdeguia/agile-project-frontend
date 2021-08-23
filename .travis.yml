@@ -1,0 +1,15 @@
+language: java
+dist: trusty
+jdk:
+  - oraclejdk8
+before_script:
+  - "./gradlew test"
+script:
+  - "./gradlew build"
+deploy:
+  provider: heroku
+  api_key:
+    secure:
+  app: agile-project-frontend
+  on:
+    repo: gherdeguia/agile-project-frontend
