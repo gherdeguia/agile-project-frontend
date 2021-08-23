@@ -1,10 +1,10 @@
 import React from 'react'
-import SearchBar from "./SearchBar";
+import SearchForm from "./SearchForm";
 
 function Landing() {
     return (
         <div>
-            <SearchBar/>
+            <SearchForm/>
         </div>
     )
 }
