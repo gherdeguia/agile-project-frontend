@@ -1,0 +1,15 @@
+.table{
+    color:white;
+    text-align: left;
+    font-size: x-small;
+}
+
+.navbar-nav{
+    color:white;
+    font-size: small;
+}
+
+td{
+    padding-right: 60px;
+    padding-top: 5px;
+}
