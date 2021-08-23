@@ -21,3 +21,7 @@ td{
 .nav-link:hover{
     color:gray;
 }
+
+tbody, td, tfoot, th, thead, tr {
+    border-style: none;
+}
