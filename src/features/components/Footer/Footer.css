@@ -13,3 +13,11 @@ td{
     padding-right: 60px;
     padding-top: 5px;
 }
+
+.nav-link{
+    color:white;
+}
+
+.nav-link:hover{
+    color:gray;
+}
