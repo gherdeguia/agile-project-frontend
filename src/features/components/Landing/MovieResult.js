@@ -8,6 +8,9 @@ function MovieResult(props) {
     const movie = props.movie
     const cinemas = props.cinemas;
 
+    const criticsRating = movie.criticsRating ? movie.criticsRating : "--"
+    const audienceRating = movie.audienceRating ? movie.audienceRating : "--"
+
     return (
         <Container>
             <Row>
@@ -17,14 +20,14 @@ function MovieResult(props) {
                     <div>
                         <div>
                             <img src={tomato} className="review-icon" alt={tomato}/>
-                            <span className="value-reviews"> --%</span>
+                            <span className="value-reviews"> {criticsRating}%</span>
                         </div>
                         <span className="reviews">Critic Reviews</span>
                     </div>
                     <div>
                         <div>
                             <img src={popcorn} className="review-icon" alt={popcorn}/>
-                            <span className="value-reviews"> --%</span>
+                            <span className="value-reviews"> {audienceRating} %</span>
                         </div>
                         <span className="reviews">Audience Reviews</span>
                     </div>
