@@ -3,9 +3,10 @@ dist: trusty
 node_js:
 - '14'
 script:
+- npm install
 - npm test
 - npm run build
-- npm start
+- serve -s build
 deploy:
   provider: heroku
   api_key:
