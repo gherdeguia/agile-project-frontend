@@ -17,10 +17,10 @@ const dev = {
 };
 
 let config = dev;
-if(process.env.NODE_ENV === 'staging') {
+if(process.env.REACT_APP_NODE_ENV === 'staging') {
     config = staging
 }
-else if(process.env.NODE_ENV === 'production'){
+else if(process.env.REACT_APP_NODE_ENV === 'production'){
     config = prod
 };
 
