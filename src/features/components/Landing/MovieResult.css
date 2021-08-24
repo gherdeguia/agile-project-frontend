@@ -42,3 +42,13 @@
     font-size: 28px;
     font-weight: bold;
 }
+
+.card-cinema {
+    width: 13rem;
+    height: 13rem;
+    display: inline-grid;
+    margin: 10px;
+    text-align: center;
+    align-content: center;
+    background: #F2F2F2;
+}

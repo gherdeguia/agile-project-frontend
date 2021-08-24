@@ -10,6 +10,8 @@ import {useEffect} from "react";
 import {getMovies} from "./features/apis/movies";
 import {useDispatch} from "react-redux";
 import {AddMovies} from './features/reducers/moviesSlice'
+import {getCinemas} from "./features/apis/cinemas";
+import {AddCinemas} from "./features/reducers/cinemaSlice";
 
 function App() {
     const dispatch = useDispatch();
@@ -17,6 +19,10 @@ function App() {
     useEffect(() => {
         getMovies().then((response) => {
             dispatch(AddMovies(response.data));
+        })
+
+        getCinemas().then((response) => {
+            dispatch(AddCinemas(response.data));
         })
     })
 
@@ -34,7 +40,7 @@ function App() {
                             />
                         </Navbar.Brand>
                         <Nav>
-                            <Link>
+                            <Link to="/">
                                 <b>Sign up</b>&nbsp;
                                 <FontAwesomeIcon icon={faUserCircle}/>
 

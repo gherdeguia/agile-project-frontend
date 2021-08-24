@@ -6,24 +6,25 @@ import popcorn from "./popcorn.png"
 
 function MovieResult(props) {
     const movie = props.movie
-    console.log(movie)
+    const cinemas = props.cinemas;
+    console.log(cinemas)
 
     return (
         <Container>
             <Row>
                 <Col>
-                    <img className="movie-poster" src={movie.poster}/>
+                    <img className="movie-poster" src={movie.poster} alt={movie.poster}/>
                     <button className="see-more-detail-button">See more details</button>
                     <div>
                         <div>
-                            <img src={tomato} className="review-icon"/>
+                            <img src={tomato} className="review-icon" alt={tomato}/>
                             <span className="value-reviews"> --%</span>
                         </div>
                         <span className="reviews">Critic Reviews</span>
                     </div>
                     <div>
                         <div>
-                            <img src={popcorn} className="review-icon"/>
+                            <img src={popcorn} className="review-icon" alt={popcorn}/>
                             <span className="value-reviews"> --%</span>
                         </div>
                         <span className="reviews">Audience Reviews</span>
@@ -32,6 +33,14 @@ function MovieResult(props) {
                 <Col>
                     <h3><b>{movie.name}</b></h3>
                     <span className="span-available-cinemas">Available Cinemas</span>
+                    {
+                        cinemas.map((cinema) => (
+                            <div className="card-cinema">
+                                <div><h4><b>{cinema.name}</b></h4></div>
+                                <p>location</p>
+                            </div>
+                        ))
+                    }
                 </Col>
                 <Col></Col>
             </Row>

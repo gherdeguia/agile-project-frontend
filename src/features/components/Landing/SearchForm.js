@@ -5,20 +5,36 @@ import MovieResult from "./MovieResult";
 import {useSelector} from 'react-redux';
 
 import {selectMovies} from "../../reducers/moviesSlice";
+import {selectCinemas} from "../../reducers/cinemaSlice";
+import CinemaResult from "./CinemaResult";
 
 const {TabPane} = Tabs;
 
 function SearchForm() {
 
     const movieList = useSelector(selectMovies);
+    const cinemaList = useSelector(selectCinemas);
     const [movieText, setMovieText] = useState("|");
+    const [cinemaText, setCinemaText] = useState("|");
 
     function movieSearch(event) {
-        setMovieText(event)
+        if (event !== "") {
+            setCinemaText("|")
+            setMovieText(event)
+        }
+    }
+
+    function getAvilableCinema(singleMovie) {
+        return cinemaList.filter((cinema) =>
+            cinema.movies.filter((movie) => movie.name.includes(singleMovie.name))
+        )
     }
 
     function cinemaSearch(event) {
-
+        if (event !== "") {
+            setMovieText("|")
+            setCinemaText(event)
+        }
     }
 
     return (
@@ -33,9 +49,18 @@ function SearchForm() {
             </Tabs>
             <div className={`search-result `}>
                 {
-                    movieList.filter((singeMovie) => singeMovie.name.toLowerCase().includes(movieText.toLowerCase()))
+                    movieList.filter((singleMovie) => singleMovie.name.toLowerCase().includes(movieText.toLowerCase()))
                         .map((singleMovie) => (
-                            <MovieResult movie={singleMovie}/>
+                            <div>
+                                <MovieResult movie={singleMovie} cinemas={getAvilableCinema(singleMovie)}/>
+
+                            </div>
+                        ))
+                }
+                {
+                    cinemaList.filter((singleCinema) => singleCinema.name.toLowerCase().includes(cinemaText.toLowerCase()))
+                        .map((singleCinema) => (
+                            <CinemaResult cinema={singleCinema}/>
                         ))
                 }
             </div>
