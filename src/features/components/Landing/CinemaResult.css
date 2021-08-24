@@ -1,0 +1,43 @@
+.span-available-movies {
+    background: #FF7700;
+    color: white;
+    padding: 6px;
+    border-radius: 100px;
+}
+.wrapper{
+    text-align: left;
+}
+
+.cinema-details{
+    margin: 20px;
+}
+
+.card {
+    width: 15rem;
+    display: inline-grid;
+    margin: 10px;
+    border: 0px;
+}
+
+.card-header, .card-body {
+    width: inherit;
+    background-color: white;
+    border: 0px;
+}
+
+.movie-poster-cinema{
+    width: 90%;
+}
+
+.book-ticket-btn{
+    background-color: #FC851D; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 32px;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 90%;
+}

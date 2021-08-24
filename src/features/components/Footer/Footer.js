@@ -9,6 +9,7 @@ function Footer() {
             <Container>
                 <Navbar.Brand href="/">
                     <Table>
+                        <tbody>
                         <tr>
                             <td>
                                 <a className="nav-link" href="/">About</a>
@@ -32,6 +33,7 @@ function Footer() {
                                 <a className="nav-link" href="/">Cinemas</a>
                             </td>
                         </tr>
+                        </tbody>
                     </Table>
                 </Navbar.Brand>
                 <Nav>

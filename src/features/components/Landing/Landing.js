@@ -1,13 +1,10 @@
 import React from 'react'
-import Footer from "../Footer/Footer";
+import SearchForm from "./SearchForm";
 
 function Landing() {
     return (
         <div>
-            Landing
-
-
-            <Footer/>
+            <SearchForm/>
         </div>
     )
 }

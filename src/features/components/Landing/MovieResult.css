@@ -1,0 +1,54 @@
+.movie-poster {
+    width: 80%;
+}
+
+.container {
+    margin: 40px;
+}
+
+.col {
+    text-align: left;
+}
+
+.span-available-cinemas {
+    background: #FF7700;
+    color: white;
+    padding: 6px;
+    border-radius: 100px;
+}
+
+.see-more-detail-button {
+    background-color: #5ECFF9; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 80%;
+}
+
+.reviews {
+    color: #3DCAFF;
+}
+
+.review-icon {
+    width: 40px;
+}
+
+.value-reviews {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.card-cinema {
+    width: 13rem;
+    height: 13rem;
+    display: inline-grid;
+    margin: 10px;
+    text-align: center;
+    align-content: center;
+    background: #F2F2F2;
+}
