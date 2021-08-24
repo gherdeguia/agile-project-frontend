@@ -51,16 +51,15 @@ function SearchForm() {
                 {
                     movieList.filter((singleMovie) => singleMovie.name.toLowerCase().includes(movieText.toLowerCase()))
                         .map((singleMovie) => (
-                            <div>
+                            <div key={singleMovie.id}>
                                 <MovieResult movie={singleMovie} cinemas={getAvilableCinema(singleMovie)}/>
-
                             </div>
                         ))
                 }
                 {
                     cinemaList.filter((singleCinema) => singleCinema.name.toLowerCase().includes(cinemaText.toLowerCase()))
                         .map((singleCinema) => (
-                            <CinemaResult cinema={singleCinema}/>
+                            <CinemaResult key={singleCinema.id} cinema={singleCinema}/>
                         ))
                 }
             </div>
