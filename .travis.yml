@@ -6,7 +6,7 @@ script:
 - npm test
 - npm run build
 - npm install -g serve
-- serve -s build
+- travis_wait serve -s build
 
 deploy:
   provider: heroku
