@@ -1,12 +1,12 @@
 const prod = {
  url: {
- API_URL: "https://cine-q-prod.herokuapp.com/",
+ API_URL: "https://cine-q-backend-prod.herokuapp.com/",
  },
 };
 
 const staging = {
  url: {
- API_URL: "https://cine-q.herokuapp.com/",
+ API_URL: "https://cine-q-backend.herokuapp.com/",
  },
 };
 
