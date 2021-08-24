@@ -7,7 +7,6 @@ import popcorn from "./popcorn.png"
 function MovieResult(props) {
     const movie = props.movie
     const cinemas = props.cinemas;
-    console.log(cinemas)
 
     return (
         <Container>
