@@ -35,7 +35,7 @@ function MovieResult(props) {
                     <span className="span-available-cinemas">Available Cinemas</span>
                     {
                         cinemas.map((cinema) => (
-                            <div className="card-cinema">
+                            <div key={cinema.id} className="card-cinema">
                                 <div><h4><b>{cinema.name}</b></h4></div>
                                 <p>location</p>
                             </div>

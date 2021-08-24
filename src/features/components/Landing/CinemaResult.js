@@ -20,7 +20,7 @@ function CinemaResult(props) {
                         </Card.Header>
                         <Card.Body>
                             {movies.map((movie) => (
-                                <div>
+                                <div key={movie.id}>
                                     <img className="movie-poster-cinema" src={movie.poster} alt={movie.poster}/>
                                     <button className="book-ticket-btn">Book Ticket</button>
                                 </div>
