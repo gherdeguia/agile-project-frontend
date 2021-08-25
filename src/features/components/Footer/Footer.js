@@ -5,8 +5,8 @@ import './Footer.css'
 
 function Footer() {
     return (
-        <Navbar bg="dark" fixed="bottom">
-            <Container>
+       
+            <Container className="footer">
                 <Navbar.Brand href="/">
                     <Table>
                         <tbody>
@@ -52,7 +52,7 @@ function Footer() {
                     </div>
                 </Nav>
             </Container>
-        </Navbar>
+       
     )
 }
 

@@ -13,6 +13,8 @@ import {AddMovies} from './features/reducers/moviesSlice'
 import {getCinemas} from "./features/apis/cinemas";
 import {AddCinemas} from "./features/reducers/cinemaSlice";
 import {AddTrendings} from "./features/reducers/trendingSlice";
+import Payment from './features/components/Payment/Payment';
+
 
 function App() {
     const dispatch = useDispatch();
@@ -53,18 +55,13 @@ function App() {
                         </Nav>
                     </Container>
                 </Navbar>
-
-
                 <Switch>
                     <Route exact path="/" component={Landing}></Route>
-                    <Route exact path="/link1" component={Landing}></Route>
+                    <Route exact path="/payment" component={Payment}></Route>
                     <Route exact path="/link2" component={Landing}></Route>
                     {/* <Route path="*" component={NotFoundPage}></Route> */}
                 </Switch>
-
             </BrowserRouter>
-
-
         </div>
     );
 }
