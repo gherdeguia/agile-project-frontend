@@ -14,8 +14,8 @@ function MovieResult(props) {
     return (
         <Container>
             <Row>
-                <Col>
-                    <img className="movie-poster" src={movie.poster} alt={movie.poster}/>
+                <div className="movie-info">
+                    <img className="movie-poster" src={movie.poster} alt={movie.name}/>
                     <button className="see-more-detail-button">See more details</button>
                     <div>
                         <div>
@@ -27,14 +27,16 @@ function MovieResult(props) {
                     <div>
                         <div>
                             <img src={popcorn} className="review-icon" alt={popcorn}/>
-                            <span className="value-reviews"> {audienceRating} %</span>
+                            <span className="value-reviews"> {audienceRating}%</span>
                         </div>
                         <span className="reviews">Audience Reviews</span>
                     </div>
-                </Col>
-                <Col>
+                </div>
+                <Col className="col-available-cinemas">
+                    <div>
                     <h3><b>{movie.name}</b></h3>
                     <span className="span-available-cinemas">Available Cinemas</span>
+                    </div>
                     {
                         cinemas.map((cinema) => (
                             <div key={cinema.id} className="card-cinema">
@@ -44,7 +46,6 @@ function MovieResult(props) {
                         ))
                     }
                 </Col>
-                <Col></Col>
             </Row>
         </Container>
 
