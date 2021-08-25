@@ -12,6 +12,7 @@ import {useDispatch} from "react-redux";
 import {AddMovies} from './features/reducers/moviesSlice'
 import {getCinemas} from "./features/apis/cinemas";
 import {AddCinemas} from "./features/reducers/cinemaSlice";
+import ScreenTimeCalendar from './features/components/TicketReservation/ScreenTimeCalendar';
 
 function App() {
     const dispatch = useDispatch();
@@ -54,6 +55,9 @@ function App() {
                     <Route exact path="/" component={Landing}></Route>
                     <Route exact path="/link1" component={Landing}></Route>
                     <Route exact path="/link2" component={Landing}></Route>
+
+                    
+                    <Route exact path="/screening_time" component={ScreenTimeCalendar}></Route>
                     {/* <Route path="*" component={NotFoundPage}></Route> */}
                 </Switch>
 

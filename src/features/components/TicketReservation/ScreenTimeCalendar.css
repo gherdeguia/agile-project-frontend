@@ -1,0 +1,103 @@
+/* body{
+  background-color: black;
+} */
+
+.container-calendar{
+  background-size: 100%;
+  margin-left: 15%;
+  width: 70%;
+  height: 100px;
+
+}
+
+h1, h3{
+text-align: left;
+margin-top: -8px;
+color:#000000;
+}
+
+
+.labels{
+  display: flex;
+  justify-content: flex-start;
+  color: #FFFFFF;
+  
+
+}
+
+.available-time{
+background: #FF7700;
+border-radius: 100px;
+width: 7%;
+padding: 7px;
+margin-right: 7px;
+
+}
+
+.soldout-time{
+  background: #D3D3D3;
+  border-radius: 100px;
+  width: 7%;
+  padding: 7px;
+  margin-right: 7px;
+}
+
+.selected-time{
+background: #BD4F12;
+border-radius: 100px;
+width: 7%;
+padding: 7px;
+margin-right: 7px;
+}
+
+.plan-button{
+  font-size: 16px;
+  font-weight: bold;
+  color: #FFFFFF;
+  width: 15%;
+  height: 50px;
+ 
+background: linear-gradient(119.6deg, #FC851D 31.88%, #BD4F12 75.71%);
+border: none;
+border-radius: 5px;
+
+}
+
+/* .ant-button:active{
+  background: #5f280a;
+} */
+
+
+.action-buttons{
+  display:flex;
+  justify-content: flex-end;
+}
+
+.cancel-button {
+font-size: 16px;
+font-weight: bold;
+color: #FFFFFF;
+width: 12%;
+height: 50px;
+margin-right: 12px;
+
+background: #bbbbbb;
+border: none;
+border-radius: 5px;
+
+}
+.events {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .events .ant-badge-status {
+    width: 100%;
+    /* overflow: hidden; */
+    font-size: 13px;
+    white-space: nowrap;
+    /* text-overflow: ellipsis; */
+  }
+  .notes-month section {
+    font-size: 28px;
+  }
