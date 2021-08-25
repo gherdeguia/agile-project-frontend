@@ -9,10 +9,9 @@ function CinemaResult(props) {
 
     return (
         <Container fluid className="App">
-            <Row></Row>
             <Row>
                 <Col>
-                    <Card style={{width: '15rem', display: 'inline-grid', margin: '10px'}}>
+                    <Card style={{width: 'inherit', display: 'inline-grid', margin: '10px'}}>
                         <Card.Header>
                             <div><h4>{cinema.name}</h4></div>
                             <p>location</p>
@@ -20,10 +19,14 @@ function CinemaResult(props) {
                         </Card.Header>
                         <Card.Body>
                             {movies.map((movie) => (
-                                <div key={movie.id}>
-                                    <img className="movie-poster-cinema" src={movie.poster} alt={movie.poster}/>
-                                    <button className="book-ticket-btn">Book Ticket</button>
-                                </div>
+                                <Card>
+                                    <Card.Body>
+                                        <div key={movie.id}>
+                                            <img className="movie-poster-cinema" src={movie.poster} alt={movie.name}/>
+                                            <button className="book-ticket-btn">Book Ticket</button>
+                                        </div>
+                                    </Card.Body>
+                                </Card>
                             ))}
                         </Card.Body>
                     </Card>
