@@ -3,13 +3,19 @@ import {Col, Container, Row} from "react-bootstrap";
 import './MovieResult.css';
 import tomato from "./tomato.png"
 import popcorn from "./popcorn.png"
+import {SelectMovieAndCinema} from "../../reducers/orderSlice";
+import {useDispatch} from "react-redux";
 
 function MovieResult(props) {
     const movie = props.movie
     const cinemas = props.cinemas;
-
+    const dispatch = useDispatch();
     const criticsRating = movie.criticsRating ? movie.criticsRating : "--"
     const audienceRating = movie.audienceRating ? movie.audienceRating : "--"
+
+    function selectCinema(cinema) {
+        dispatch(SelectMovieAndCinema({movie, cinema}))
+    }
 
     return (
         <Container>
@@ -34,12 +40,12 @@ function MovieResult(props) {
                 </div>
                 <Col className="col-available-cinemas">
                     <div>
-                    <h3><b>{movie.name}</b></h3>
-                    <span className="span-available-cinemas">Available Cinemas</span>
+                        <h3><b>{movie.name}</b></h3>
+                        <span className="span-available-cinemas">Available Cinemas</span>
                     </div>
                     {
                         cinemas.map((cinema) => (
-                            <div key={cinema.id} className="card-cinema">
+                            <div key={cinema.id} className="card-cinema" onClick={() => selectCinema(cinema)}>
                                 <div><h4><b>{cinema.name}</b></h4></div>
                                 <p>location</p>
                             </div>
