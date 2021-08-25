@@ -24,9 +24,9 @@ function SearchForm() {
         }
     }
 
-    function getAvilableCinema(singleMovie) {
+    function getAvailableCinema(singleMovie) {
         return cinemaList.filter((cinema) =>
-            cinema.movies.filter((movie) => movie.name.includes(singleMovie.name))
+            cinema.movies.filter((movie) => movie.name.includes(singleMovie.name)).length !== 0
         )
     }
 
@@ -52,7 +52,7 @@ function SearchForm() {
                     movieList.filter((singleMovie) => singleMovie.name.toLowerCase().includes(movieText.toLowerCase()))
                         .map((singleMovie) => (
                             <div key={singleMovie.id}>
-                                <MovieResult movie={singleMovie} cinemas={getAvilableCinema(singleMovie)}/>
+                                <MovieResult movie={singleMovie} cinemas={getAvailableCinema(singleMovie)}/>
                             </div>
                         ))
                 }
