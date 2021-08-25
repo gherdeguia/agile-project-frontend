@@ -10,10 +10,14 @@ import {
   ToggleButtonGroup,
   ToggleButton,
   Button,
+  Modal
 } from "react-bootstrap";
 import "./payment.css";
 import { useState } from "react";
 import * as Icon from "react-bootstrap-icons";
+import {useDispatch} from "react-redux";
+import { AddUser } from "../../reducers/orderSlice";
+import { createPayment } from "../../apis/payment";
 
 function Payment() {
   const [value, setValue] = useState([1, 3]);
@@ -26,15 +30,49 @@ function Payment() {
   const [cardNum, setCardNum] = useState('');
   const [expiration, setExpiration] = useState('');
   const [cvv, setCVV] = useState('');
+  const dispatch = useDispatch();
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const transactionDetails = {
+    fullName: fname,
+    email: email,
+    contactDetail: phoneNo,
+    cardHolderName: cardName,
+    cardDetail: cardNum,
+    cardExpiration: expiration,
+    cardCode: cvv, 
+    movieName: "Avengers",
+    cinemaName: "SM Lipa",
+    screeningDate: "2021-08-23",
+    screeningStartTime: "19:00:00",
+    screeningEndTime: "20:00:00",
+    selectedSeats: "A1 A2 A3",
+    totalPrice: "150.00"
+  }
+
+  const userDetails = {
+    fullName: fname,
+    emailAdd: email,
+    phoneNum: phoneNo,
+  }
 
   function onPayment(event){
-    console.log("full name: ",fname)
-    console.log("email: ",email)
-    console.log("Phone number: ",phoneNo)
-    console.log("card name: ",cardName)
-    console.log("card number: ",cardNum)
-    console.log("expiration: ",expiration)
-    console.log("cvv: ",cvv)
+    // console.log("full name: ",fname)
+    // console.log("email: ",email)
+    // console.log("Phone number: ",phoneNo)
+    // console.log("card name: ",cardName)
+    // console.log("card number: ",cardNum)
+    // console.log("expiration: ",expiration)
+    // console.log("cvv: ",cvv)
+    if(fname)
+    handleShow();
+    createPayment(transactionDetails).then((response)=>{
+      dispatch(AddUser(userDetails));
+    })
+    
   } 
   
   function onChangeName(event){
@@ -185,6 +223,18 @@ function Payment() {
     </Row> 
     
     </Container>
+
+    <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Payment Information</Modal.Title>
+        </Modal.Header>
+        <Modal.Body><h3>Hi {fname}!, Your purchase was successful! <Icon.CheckCircle size={36}/> </h3></Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" href="/">
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }
