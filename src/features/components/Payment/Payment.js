@@ -60,13 +60,6 @@ function Payment() {
   }
 
   function onPayment(event){
-    // console.log("full name: ",fname)
-    // console.log("email: ",email)
-    // console.log("Phone number: ",phoneNo)
-    // console.log("card name: ",cardName)
-    // console.log("card number: ",cardNum)
-    // console.log("expiration: ",expiration)
-    // console.log("cvv: ",cvv)
     if(fname)
     handleShow();
     createPayment(transactionDetails).then((response)=>{
@@ -177,7 +170,7 @@ function Payment() {
                 </Row>
                 <Row className="mb-3">
                   <Form.Group className="mb-3" controlId="formGridAddress1">
-                    <Button variant="warning" className="btn-submit" onClick={onPayment} type="submit">
+                    <Button variant="warning" className="btn-submit" onClick={onPayment}>
                       Make Payment
                     </Button>
                   </Form.Group>
