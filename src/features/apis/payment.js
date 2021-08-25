@@ -1,6 +1,6 @@
 import api from "./api"
 
 
-export const create = (details) => {
+export const createPayment = (details) => {
     return api.post("/payments", details)
 }
