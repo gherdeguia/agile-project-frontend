@@ -3,6 +3,7 @@ import './CinemaResult.css'
 import {Card, Col, Container, Row} from "react-bootstrap";
 import {SelectMovieAndCinema} from "../../reducers/orderSlice";
 import {useDispatch} from "react-redux";
+import {Link} from "react-router-dom";
 
 function CinemaResult(props) {
 
@@ -22,7 +23,6 @@ function CinemaResult(props) {
                     <Card style={{width: 'inherit', display: 'inline-grid', margin: '10px'}}>
                         <Card.Header>
                             <div><h4>{cinema.name}</h4></div>
-                            <p>location</p>
                             <span className="span-available-movies">Available Movies</span>
                         </Card.Header>
                         <Card.Body>
@@ -31,9 +31,11 @@ function CinemaResult(props) {
                                     <Card.Body>
                                         <div>
                                             <img className="movie-poster-cinema" src={movie.poster} alt={movie.name}/>
-                                            <button className="book-ticket-btn"
-                                                    onClick={() => selectMovie(movie)}>Book Ticket
-                                            </button>
+                                            <Link to="/screenings">
+                                                <button className="book-ticket-btn"
+                                                        onClick={() => selectMovie(movie)}>Book Ticket
+                                                </button>
+                                            </Link>
                                         </div>
                                     </Card.Body>
                                 </Card>
