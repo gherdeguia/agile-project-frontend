@@ -1,83 +1,62 @@
 import React from 'react'
-import { Calendar, Badge } from 'antd';
-import {useState} from "react";
-import './ScreenTimeCalendar.css'
+import {useState, useEffect} from "react";
+import './ScreenTimeCalendar.css';
+import { useSelector, useDispatch} from 'react-redux';
+import { getOrder, SelectScreeningTime } from '../../reducers/orderSlice';
+import {getScreeningTime} from "../../apis/screeningtime";
+import {selectScreenings, AddScreenings} from "../../reducers/screeningSlice";
+import { Link } from 'react-router-dom';
+import dateFormat from 'dateformat';
 
 function ScreenTimeCalendar() {
+  const selected = useSelector(getOrder);
+  const movie = selected.movie;
+  const cinema = selected.cinema;
 
+  const screenings = useSelector(selectScreenings);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    getScreeningTime(cinema.id, movie.name).then((response) => {
+        dispatch(AddScreenings(response.data));
+    })
+  })
+
+  
   const [isSelected, setIsSelected]  = useState(false);
   const [screeningTime, setScreeningTime] = useState('');
-  
-  const cinemaName = "CinemaSample";
-  const movieName ="MovieSample";
-  const screenTime = '9:00 AM - 10:00 AM';
-  const screenTime2 = '11:00 AM - 12:00 PM';
-  const availableSeat = 1;
-  // const screenTimeList = [{startDate:"9:00 AM", endDate:"10:00 AM", availableSeat:"23"},
-  //                         {startDate:"11:00 AM", endDate:"12:00 PM", availableSeat:"0"},
-  //                         {startDate:"1:00 PM", endDate:"2:00 PM", availableSeat:"23"}];
+ 
 
-
-
-  const getScreenTime = (value, screenTime) =>{
-     if (value.month() === 7){
-       var monthEquivalent = "AUG";
-     }
-     if (value.month() === 8){
-      var monthEquivalent = "SEP";
-    }
-    if (value.month() === 9){
-      var monthEquivalent = "OCT";
-    }
-
-    if (isSelected===true){
+  const fetchScreenTime = (screening) =>{
+    const sTime = dateFormat(screening.movieDate,"yyyy mmm d" ) + " " + screening.startTime + " " + screening.endTime;
+    if (isSelected === true && screeningTime === sTime){
       setScreeningTime("");
+      setIsSelected(false);
+      setSelectedScreeningTime("");
     }
+    
     else{
-     setScreeningTime(monthEquivalent + '  ' + `${value.date()}` + '  |  ' + screenTime)
-    }
-     setIsSelected(!isSelected);
-  }
-
-function getListData(value) {
-    let listData;
-    if (value.month() === 7){
-      switch (value.date()) {
-         case 10:
-          listData = [
-          { type: '', content: 
-          <span className='screentime-button'>
-          <button className={isSelected ? "selectedScreenTime":"screeningTime-button"} disabled={availableSeat===0} onClick= {() => getScreenTime(value, screenTime)}>
-           {screenTime}
-          </button></span> },
-        ];
-        break;
-        default:
+    setScreeningTime(sTime);
+    setIsSelected(true);
+    setSelectedScreeningTime(screening);
     }
   }
-    return listData || [];
+
+  const [selectedScreeningTime, setSelectedScreeningTime] = useState('');
+  
+  const planSeats = () =>{
+    if (selectedScreeningTime != ""){
+      dispatch(SelectScreeningTime({selectedScreeningTime}));
+    }
+
   }
 
-  
-  function dateCellRender(value) {
-    const listData = getListData(value);
-    return (
-      <ul className="events">
-        {listData.map(item => (
-          <li key={item.content}>
-            <Badge status={item.type} text={item.content} />
-          </li>
-        ))}
-      </ul>
-    );
-  }
-  
-  
+
     return (
         <div>
             <div className='container-calendar'>
-              <h1>{cinemaName}</h1>
-              <h3>{movieName}</h3>
+              <h1>{cinema.name}</h1>
+              <h3>{movie.name}</h3>
 
             <div className="labels">
               <span className="available-time">Available</span>
@@ -85,17 +64,27 @@ function getListData(value) {
               <span className="selected-time">Selected</span>
             </div>
 
-      
-
                 <div className='ant-calendar'>
-                  
-                <Calendar className='calendar' dateCellRender={dateCellRender} />
+
+            {screenings.map((screening) => (
+            
+            <span key={screening.id} className='screentime-button'>
+              <button className="screeningTime-button" disabled={screening.availableSeats==='0'} onClick= {() => fetchScreenTime(screening)}>
+               { dateFormat(screening.movieDate,"yyyy mmm d")+ "   " + screening.startTime + " " + screening.endTime}
+              </button>
+            </span>))}
+                
                 <div className='screenTime-output'>
                 <h2>Selected Screening Time:</h2>
                 <div className='screenTime-value'>{screeningTime}</div>
                 </div>
-                <span className='action-buttons'><button className="cancel-button">CANCEL</button>
-                <button className="plan-button">PLAN YOUR SEATS</button>
+                
+                <span className='action-buttons'>
+                <Link to="/"><button className="cancel-button">CANCEL</button>
+                </Link>
+                <Link to="/">
+                <button className="plan-button"  onClick={planSeats}>PLAN YOUR SEATS</button>
+                </Link>
                 
                 </span>
                 </div>
