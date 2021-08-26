@@ -1,27 +1,33 @@
-.table{
-    color:white;
+.follow-text, .email-text, .facebook-text, .insta-text{
+    color: white;
     text-align: left;
-    font-size: x-small;
+    padding-left:20px;
 }
 
-.navbar-nav{
-    color:white;
-    font-size: small;
+.vertical-line{
+    border-right: 2px solid orange;
 }
 
-td{
-    padding-right: 60px;
-    padding-top: 5px;
+.follow-text{
+    font-size: 20px;
+    padding-top: 40px;
+    color: #FF7700;
 }
 
-.nav-link{
-    color:white;
+.footer-container{
+    height: 200px;
+    margin-top: 55px;
+    background-color: #141414;
+
 }
 
-.nav-link:hover{
-    color:gray;
+.cineq-logo{
+    float: right;
+    margin-top: 20px;
+    margin-left: 50px;
 }
-
-tbody, td, tfoot, th, thead, tr {
-    border-style: none;
+.group-name{
+    padding-bottom: 10px;
+    text-align: right;
+    color: white;
 }
