@@ -24,7 +24,6 @@ function Receipt() {
                 <h1>THANK YOU for your purchase</h1>
             </Row>
             <Row> 
-                {/* <Col></Col> */}
                 <Col>
                     <div className = "ticket-wrapper">
                     <div className = "ticket-header">MOVIE TICKET</div>
@@ -41,7 +40,6 @@ function Receipt() {
                     </div>
                     </div>
                 </Col>
-                {/* <Col></Col> */}
             </Row>
         </Container>
     );

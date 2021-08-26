@@ -22,7 +22,6 @@ const orderSlice = createSlice({
         },
         AddUser(state, action){
             state.user = action.payload
-            console.log(action);
         },
         ReserveTickets(state, action) {
             state.price = action.payload.totalPrice;
@@ -33,7 +32,6 @@ const orderSlice = createSlice({
         },
         AddOrder(state, action){
             state.payment = action.payload;
-            console.log(`action.payload`, action.payload);
         }
     }
 })

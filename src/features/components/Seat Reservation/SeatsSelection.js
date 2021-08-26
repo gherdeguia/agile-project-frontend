@@ -19,7 +19,6 @@ function SeatsSelection() {
     const price = parseFloat("250.0");
     const [quantity, setQuantity] = useState("");
     const [totalPrice, setTotalPrice] = useState("0.00");
-    console.log(`selected`, selected);
 
     function changeTicketQuantity(value) {
         setQuantity(value);

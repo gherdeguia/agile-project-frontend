@@ -42,8 +42,6 @@ function Payment(props) {
     const quantity = selected.ticketQuantity
     const totalPrice = selected.price
     const seats = selected.Seats.seatSelected
-    
-    console.log(seats)
 
     const transactionDetails = {
         fullName: fname,
