@@ -1,0 +1,32 @@
+.ticket-wrapper{
+    background-image: url("./ticket.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+.ticket-parent{
+    text-align: center;
+    margin: auto;
+    font-family: RobotoFont;
+    font-size: 30px;
+}
+
+.ticket-header{
+    font-family: RobotoFont;
+    font-size: 30px;
+}
+
+.ticket-content{
+    font-family: RobotoFont;
+    font-size: 20px;
+    color: white;
+}
+
+@font-face {
+    font-family: RobotoFont;
+    src: url(Roboto-Black.ttf);
+  }
