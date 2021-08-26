@@ -1,5 +1,5 @@
 import React from 'react'
-import {Container, Nav, Navbar, Table} from "react-bootstrap";
+import {Table} from "react-bootstrap";
 import logo from "../Header/CINEQ-2.png";
 import emails from "../Header/email.png";
 import instagram from "../Header/instagram.png";
@@ -29,6 +29,7 @@ function Footer() {
                                     src={emails}
                                     width="30px"
                                     className='email-logo'
+                                    alt="Email Logo"
                                 />
                                 cineq@business-email.com
                             </td>
@@ -39,6 +40,7 @@ function Footer() {
                                     src={facebook}
                                     width="30px"
                                     className='facebook-logo'
+                                    alt="Facebook Logo"
                                 />
                                 /cineQ
                             </td>
@@ -51,12 +53,12 @@ function Footer() {
                                     src={instagram}
                                     width="30px"
                                     className='instagram-logo'
+                                    alt="Instagram Logo"
                                 />
                                 @cineQ</td>
                         </tr>
                 </Table>
             </footer>
-       
     )
 }
 
