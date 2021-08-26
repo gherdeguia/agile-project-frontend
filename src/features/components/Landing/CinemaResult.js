@@ -1,19 +1,12 @@
 import React from 'react'
 import './CinemaResult.css'
 import {Card, Col, Container, Row} from "react-bootstrap";
-import {SelectMovieAndCinema} from "../../reducers/orderSlice";
-import {useDispatch} from "react-redux";
-import {Link} from "react-router-dom";
+import MovieItem from "./MovieItem";
 
 function CinemaResult(props) {
 
     const cinema = props.cinema
     const movies = cinema.movies
-    const dispatch = useDispatch()
-
-    function selectMovie(movie) {
-        dispatch(SelectMovieAndCinema({movie, cinema}))
-    }
 
     return (
         <Container fluid className="App">
@@ -27,16 +20,7 @@ function CinemaResult(props) {
                         <Card.Body>
                             {movies.map((movie) => (
                                 <Card key={movie.id}>
-                                    <Card.Body>
-                                        <div>
-                                            <img className="movie-poster-cinema" src={movie.poster} alt={movie.name}/>
-                                            <Link to="/screening_time">
-                                                <button className="book-ticket-btn"
-                                                        onClick={() => selectMovie(movie)}>Book Ticket
-                                                </button>
-                                            </Link>
-                                        </div>
-                                    </Card.Body>
+                                    <MovieItem movie={movie} cinema={cinema}/>
                                 </Card>
                             ))}
                         </Card.Body>
