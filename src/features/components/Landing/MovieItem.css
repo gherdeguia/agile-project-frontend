@@ -1,0 +1,26 @@
+.tooltip-detail:hover{
+    opacity: 1;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.77);
+
+}
+
+.tooltip-detail {
+    position: absolute;
+    top: 4%;
+    left: 6%;
+    font-size: larger;
+    opacity: 0;
+    width: 189px;
+    height: 278px;
+    text-align: center;
+}
+
+.movie-poster-cinema{
+    width: 187px;
+    height: 277px;
+}
+
+.tooltip-span{
+    margin-top: 70%;
+}
