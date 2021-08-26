@@ -1,11 +1,13 @@
-import React from 'react'
-import {Col, Container, Row} from "react-bootstrap";
+import React, {useState} from 'react'
+import {Col, Container, Modal, Row} from "react-bootstrap";
 import './MovieResult.css';
 import tomato from "./tomato.png"
 import popcorn from "./popcorn.png"
 import {SelectMovieAndCinema} from "../../reducers/orderSlice";
 import {useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
+import MovieDetails from "./MovieDetails";
+
 
 function MovieResult(props) {
     const movie = props.movie
@@ -13,6 +15,9 @@ function MovieResult(props) {
     const dispatch = useDispatch();
     const criticsRating = movie.criticsRating ? movie.criticsRating : "--"
     const audienceRating = movie.audienceRating ? movie.audienceRating : "--"
+    const [show, setShow] = useState(false);
+
+    const handleShow = () => setShow(true);
 
     function selectCinema(cinema) {
         dispatch(SelectMovieAndCinema({movie, cinema}))
@@ -23,7 +28,7 @@ function MovieResult(props) {
             <Row>
                 <div className="movie-info">
                     <img className="movie-poster" src={movie.poster} alt={movie.name}/>
-                    <button className="see-more-detail-button">See more details</button>
+                    <button className="see-more-detail-button" onClick={handleShow}>See more details</button>
                     <div>
                         <div>
                             <img src={tomato} className="review-icon" alt={tomato}/>
@@ -47,7 +52,7 @@ function MovieResult(props) {
                     {
                         cinemas.map((cinema) => (
                             <Link key={cinema.id} to="/screening_time">
-                                <div  className="card-cinema" onClick={() => selectCinema(cinema)}>
+                                <div className="card-cinema" onClick={() => selectCinema(cinema)}>
                                     <div><h4><b>{cinema.name}</b></h4></div>
                                 </div>
                             </Link>
@@ -55,6 +60,24 @@ function MovieResult(props) {
                     }
                 </Col>
             </Row>
+
+            <Modal
+                size="lg"
+                show={show}
+                onHide={() => setShow(false)}
+                aria-labelledby="example-modal-sizes-title-lg"
+            >
+                <Modal.Header closeButton>
+                </Modal.Header>
+                <Modal.Body>
+                    <Modal.Body className="show-grid">
+                        <MovieDetails movie={movie}/>
+
+                    </Modal.Body>
+                </Modal.Body>
+            </Modal>
+
+
         </Container>
 
     )
