@@ -1,7 +1,7 @@
 import './App.css';
 import logo from "./logo.png";
 import Landing from './features/components/Landing/Landing';
-import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {Container, Nav, Navbar} from "react-bootstrap";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faUserCircle} from "@fortawesome/free-solid-svg-icons";
@@ -38,25 +38,6 @@ function App() {
     return (
         <div className="App">
             <BrowserRouter>
-                <Navbar bg="white">
-                    <Container>
-                        <Navbar.Brand href="/">
-                            <img
-                                src={logo}
-                                width="160px"
-                                className="d-inline-block align-top"
-                                alt="React Bootstrap logo"
-                            />
-                        </Navbar.Brand>
-                        <Nav>
-                            <Link to="/">
-                                <b>Sign up</b>&nbsp;
-                                <FontAwesomeIcon icon={faUserCircle}/>
-
-                            </Link>
-                        </Nav>
-                    </Container>
-                </Navbar>
                 <Switch>
                     <Route exact path="/" component={Landing}></Route>
                     <Route exact path="/payment" component={Payment}></Route>

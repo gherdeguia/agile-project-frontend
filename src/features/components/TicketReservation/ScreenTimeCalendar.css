@@ -130,7 +130,7 @@ color: black;
 
 
 .action-buttons{
-margin-top: 280px;
+margin-top: 150px;
 margin-left: 350px;
  display: inline-flex;
 }
@@ -139,24 +139,26 @@ margin-left: 350px;
 font-size: 20px;
 font-weight: bold;
 color: #FFFFFF;
-width: 100%;
+width: 200px;
 height: 60px;
+margin:5px;
 background: #bbbbbb;
 border: none;
 border-radius: 5px;
-margin-left: 120px;
+/* margin-left: 120px; */
 }
 
 .plan-button{
   font-size: 20px;
   font-weight: bold;
   color: #FFFFFF;
-  width: 80%;
+  width: 200px;
+  margin:5px;
   height: 60px;
-  margin-left: 130px;
-background: linear-gradient(119.6deg, #FC851D 31.88%, #BD4F12 75.71%);
-border: none;
-border-radius: 5px;
+  /* margin-left: 130px; */
+  background: linear-gradient(119.6deg, #FC851D 31.88%, #BD4F12 75.71%);
+  border: none;
+  border-radius: 5px;
 }
 
 .events {

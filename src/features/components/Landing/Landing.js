@@ -1,15 +1,26 @@
 import Footer from '../Footer/Footer.js';
 import React from 'react'
 import SearchForm from "./SearchForm";
-import Trending from "./Trending";
+import Trending from "./Trending"
+import Header from "../Header/Header";
+import background from "./movie-bg.png";
+import {Container} from "react-bootstrap";
+
+// import "../Landing/Landing.css";
+
+
 
 function Landing() {
     return (
         <div>
-            <Trending/>
-            <SearchForm/>
-            <Footer/>
+            <Header/>
+            <div className="landing-wrapper" style={{backgroundImage: `url(${background})`, backgroundSize: '100%', backgroundRepeat: 'no-repeat'}}> 
+                <Trending/>
+                <SearchForm/>
+                <Footer/>
+            </div>
         </div>
+        
     )
 }
 

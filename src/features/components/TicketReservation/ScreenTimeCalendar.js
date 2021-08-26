@@ -8,6 +8,8 @@ import {selectScreenings, AddScreenings} from "../../reducers/screeningSlice";
 import { Link } from 'react-router-dom';
 import dateFormat from 'dateformat';
 import moment from 'moment';
+import Header from '../Header/Header';
+
 
 function ScreenTimeCalendar() {
   const selected = useSelector(getOrder);
@@ -53,6 +55,7 @@ function ScreenTimeCalendar() {
 
     return (
         <div>
+          <Header/>
             <div className='container-calendar'>
               <h1 className='cinema-name'>{cinema.name}</h1>
               <h3 className='movie-name'>{movie.name}</h3>
@@ -80,12 +83,10 @@ function ScreenTimeCalendar() {
             </div>
 
                 <div className='action-buttons'>
-                <Link to="/"><button className="cancel-button">CANCEL</button>
-                </Link>
-                <Link to="/seats_selection">
-                <button className="plan-button"  onClick={planSeats} disabled={selectedScreeningTime===''}>PLAN YOUR SEATS</button>
-                </Link>
-
+                  <Link to="/"><button className="cancel-button">CANCEL</button></Link>
+                  <Link to="/seats_selection">
+                    <button className="plan-button"  onClick={planSeats} disabled={selectedScreeningTime===''}>PLAN YOUR SEATS</button>
+                  </Link>
                 </div>
             </div>
         </div>

@@ -28,14 +28,14 @@ function MovieDetails(props) {
                         </b>
                     </div>
                     <div className="cast-and-crews-modal">
-                        <div><b>CAST & CREWS</b></div>
+                        <div><b>CAST &amp; CREWS</b></div>
                         <div>{movie.castAndCrews}</div>
                     </div>
                 </Col>
                 <Col xs={6} md={4}>
                     <div>
                         <div><img src={movie.poster}
-                                  style={{width: "-webkit-fill-available", margin: "10px"}}
+                                  style={{width: "100%", margin: "10px"}}
                                   alt={movie.name}/>
                         </div>
                         <div>
