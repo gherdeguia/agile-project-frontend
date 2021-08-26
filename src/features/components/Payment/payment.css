@@ -1,0 +1,54 @@
+.whole-container{
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    /* background-color: blue; */
+
+}
+
+.card-body{
+    background-color: #373737;
+    color: white;    
+    
+}
+
+h2{
+    color: white;
+    text-align: left;
+    font-family: Roboto;
+    font-style: normal;
+    /* identical to box height */
+}
+
+.container-body{
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    /* width: 50%; */
+    background-color: #212121;
+}
+
+.button-group{
+    float: left;
+}
+
+.btn-submit{
+    color: white;
+    margin-top: 5px;
+    float: left;
+}
+
+.summary{
+    float: right;
+}
+
+.container-right{
+    position: absolute;
+}
+
+.hr-width{
+    margin-left: 12px;
+    width: 300px;
+}
