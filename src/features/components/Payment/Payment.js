@@ -42,7 +42,6 @@ function Payment(props) {
     const quantity = selected.ticketQuantity
     const totalPrice = selected.price
     const seats = selected.Seats.seatSelected
-    // const ticketNumber = selected.movie;
     
     console.log(seats)
 
@@ -61,7 +60,6 @@ function Payment(props) {
         screeningEndTime: "20:00:00",
         selectedSeats: "A1 A2 A3",
         totalPrice: "150.00"
-        // ticketNumber: ticketNumber
     }
     
 
@@ -175,7 +173,7 @@ function Payment(props) {
                                         <Row className="mb-3">
                                             <Form.Group as={Col} controlId="formGridExpiration">
                                                 <FormLabel>Expiration</FormLabel>
-                                                <Form.Control type="text" placeholder="MM/YY" value={expiration}
+                                                <Form.Control type="text" placeholder="MMYY" value={expiration}
                                                               onChange={onChangeExpiration}/>
                                             </Form.Group>
                                             <Form.Group as={Col} controlId="formCVV">
@@ -213,7 +211,7 @@ function Payment(props) {
                                     <Form.Group className="mb-3" controlId="formGridAddress1">
                                         Cinema: {cinema.name}<br/>
                                         <span>{moment(movieDate).format("MMMM D")}, </span>
-                                        <span>{moment(startTime,'HH:mm:ss').format("HH:mm")} - {moment(endTime,'HH:mm:ss').format("HH:mm a")}</span>
+                                        <span>{moment(startTime,'HH:mm:ss').format("HH:mm")} - {moment(endTime,'HH:mm:ss').format("HH:mm")}</span>
                                     </Form.Group>
 
                                     <Form.Group className="mb-3" controlId="formGridAddress1">

@@ -16,23 +16,14 @@ function Receipt() {
     const payment = useSelector(getPayment);
     const payment1 = useSelector(getOrder);
     console.log('payment', payment);
-    // console.log('payment', payment.ticketNumber);
-    // console.log(payment1);
-    const movie = payment1.movie;
-    // const movie = payment1.
-
-    // const movie = payment.movie;
-    // const payment1 = {movieName, cinemaName, screeningDate, screeningEndTime, screeningStartTime, selectedSeats} 
-
-
+    const quantity = payment1.ticketQuantity
+    const seats = payment1.Seats.seatSelected
 
     return(
 
-        
-
         <Container className = "ticket-parent">
             <Row>
-                <h1>Thank you for your purchase</h1>
+                <h1>THANK YOU for your purchase</h1>
             </Row>
             <Row> 
                 {/* <Col></Col> */}
@@ -40,11 +31,11 @@ function Receipt() {
                     <div className = "ticket-wrapper">
                     <div className = "ticket-header">MOVIE TICKET</div>
                     <div className = "ticket-content">
-                    <p>{movie.name}</p>
                     {null !== payment && (
                     <div>
-                    <p><span>{payment.cinemaName}</span><span> {moment(payment.screeningDate).format("MMMM Do ")} {moment(payment.screeningStartTime,'HH:mm:ss').format("HH:mm")} - {moment(payment.screeningEndTime,'HH:mm:ss').format("HH:mm")}</span></p>
-                    <p><span>Number of Tickets: </span><span> Seats: </span></p>
+                    <p>{payment.movieName}</p>
+                    <p><span>{payment.cinemaName}&emsp;</span><span className = "ticket-content2"> {moment(payment.screeningDate).format("MMMM Do ")} {moment(payment.screeningStartTime,'HH:mm:ss').format("HH:mm")} - {moment(payment.screeningEndTime,'HH:mm:ss').format("HH:mm")}</span></p>
+                    <p><span>{quantity} TICKETS </span><span className = "ticket-content2"> &emsp; SEATS: {seats.map((seat, idx) => (<span key={idx}> {seat} </span>))}  </span></p>
                     <p>Ticket No.: {payment.ticketNumber}</p>
                     </div>
                     )}

@@ -1,14 +1,21 @@
 .ticket-wrapper{
     background-image: url("./ticket.png");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 70% 70%;
     background-position: center center;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 90px;
+    padding-bottom: 90px;
     text-align: center;
 }
 
 .ticket-parent{
+    text-align: center;
+    margin: auto;
+    font-family: RobotoFont;
+    font-size: 40px;
+}
+
+.ticket-parent h1{
     text-align: center;
     margin: auto;
     font-family: RobotoFont;
@@ -18,11 +25,18 @@
 .ticket-header{
     font-family: RobotoFont;
     font-size: 30px;
+    margin: 10px;
 }
 
 .ticket-content{
     font-family: RobotoFont;
     font-size: 20px;
+    color: white;
+}
+
+.ticket-content2{
+    font-family: RobotoFont;
+    font-size: 15px;
     color: white;
 }
 
