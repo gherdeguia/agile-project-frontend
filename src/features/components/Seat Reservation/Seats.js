@@ -21,9 +21,9 @@ function Seats() {
         if (seat.is_available) {
             if (!seatSelected.includes(seat.seatNumber)) {
                 setSeatSelected(seatSelected.concat(seat.seatNumber)),
-                setSeatAvailable(seatAvailable.filter(seatAvailable => seatAvailable.seatNumber != seat.seatNumber))
+                setSeatAvailable(seatAvailable.filter(seatAvailable => seatAvailable.seatNumber !== seat.seatNumber))
             } else {
-                setSeatSelected(seatSelected.filter(seatSelected => seatSelected != seat.seatNumber)),
+                setSeatSelected(seatSelected.filter(seatSelected => seatSelected !== seat.seatNumber)),
                 setSeatAvailable(seatAvailable.concat(seat))
             }
         }
