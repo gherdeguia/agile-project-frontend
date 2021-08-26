@@ -7,7 +7,6 @@ import {
     Container,
     Form,
     FormLabel,
-    Modal,
     Row,
     ToggleButton,
     ToggleButtonGroup
@@ -15,14 +14,14 @@ import {
 import "./payment.css";
 import * as Icon from "react-bootstrap-icons";
 import {useDispatch} from "react-redux";
-import {AddUser, getOrder} from "../../reducers/orderSlice";
+import {AddUser, getOrder, AddOrder} from "../../reducers/orderSlice";
 import {createPayment} from "../../apis/payment";
 import { useSelector } from "react-redux";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import Header from "../Header/Header";
 
-function Payment() {
+function Payment(props) {
     const [value, setValue] = useState([1, 3]);
     const handleChange = (val) => setValue(val);
     const [fname, setName] = useState('');
@@ -34,10 +33,6 @@ function Payment() {
     const [cvv, setCVV] = useState('');
     const dispatch = useDispatch();
 
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
     const selected = useSelector(getOrder);
     const movie = selected.movie;
     const cinema = selected.cinema;
@@ -48,8 +43,6 @@ function Payment() {
     const quantity = selected.ticketQuantity
     const totalPrice = selected.price
     const seats = selected.Seats.seatSelected
-    
-    console.log(seats)
 
     const transactionDetails = {
         fullName: fname,
@@ -68,6 +61,7 @@ function Payment() {
         totalPrice: "150.00"
     }
 
+
     const userDetails = {
         fullName: fname,
         emailAdd: email,
@@ -75,12 +69,10 @@ function Payment() {
     }
 
     function onPayment(event) {
-        if (fname)
-            handleShow();
         createPayment(transactionDetails).then((response) => {
             dispatch(AddUser(userDetails));
+            dispatch(AddOrder(response.data));
         })
-
     }
 
     function onChangeName(event) {
@@ -181,7 +173,7 @@ function Payment() {
                                         <Row className="mb-3">
                                             <Form.Group as={Col} controlId="formGridExpiration">
                                                 <FormLabel>Expiration</FormLabel>
-                                                <Form.Control type="text" placeholder="MM/YY" value={expiration}
+                                                <Form.Control type="text" placeholder="MMYY" value={expiration}
                                                               onChange={onChangeExpiration}/>
                                             </Form.Group>
                                             <Form.Group as={Col} controlId="formCVV">
@@ -192,11 +184,11 @@ function Payment() {
                                         </Row>
                                         <Row className="mb-3">
                                             <Form.Group className="mb-3" controlId="formGridAddress1">
-                                              <Link to="/receipt">
+                                                <Link to = "/receipt">
                                               <Button variant="warning" className="btn-submit" onClick={onPayment}>
                                                     Make Payment
                                                 </Button>
-                                              </Link>
+                                                </Link>
                                             </Form.Group>
                                         </Row>
                                     </Card>
@@ -219,7 +211,7 @@ function Payment() {
                                     <Form.Group className="mb-3" controlId="formGridAddress1">
                                         Cinema: {cinema.name}<br/>
                                         <span>{moment(movieDate).format("MMMM D")}, </span>
-                                        <span>{moment(startTime,'HH:mm:ss').format("HH:mm")} - {moment(endTime,'HH:mm:ss').format("HH:mm a")}</span>
+                                        <span>{moment(startTime,'HH:mm:ss').format("HH:mm")} - {moment(endTime,'HH:mm:ss').format("HH:mm")}</span>
                                     </Form.Group>
 
                                     <Form.Group className="mb-3" controlId="formGridAddress1">
@@ -243,19 +235,6 @@ function Payment() {
                 </Row>
 
             </Container>
-
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Payment Information</Modal.Title>
-                </Modal.Header>
-                <Modal.Body><h3>Hi {fname}!, Your purchase was successful! <Icon.CheckCircle size={36}/></h3>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" href="/">
-                        Close
-                    </Button>
-                </Modal.Footer>
-            </Modal>
         </div>
     );
 }
