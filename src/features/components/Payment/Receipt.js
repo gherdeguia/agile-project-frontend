@@ -1,7 +1,6 @@
-import React, {useState} from "react";
-import ticket from "./ticket.png"
+import React from "react";
 import {getPayment, getOrder} from "../../reducers/orderSlice";
-import {useSelector, useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 import "./receipt.css";
 import {
     Col,
@@ -15,7 +14,6 @@ function Receipt() {
 
     const payment = useSelector(getPayment);
     const payment1 = useSelector(getOrder);
-    console.log('payment', payment);
     const quantity = payment1.ticketQuantity
     const seats = payment1.Seats.seatSelected
 
