@@ -20,6 +20,7 @@ import {createPayment} from "../../apis/payment";
 import { useSelector } from "react-redux";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import Header from "../Header/Header";
 
 function Payment() {
     const [value, setValue] = useState([1, 3]);
@@ -113,6 +114,7 @@ function Payment() {
 
     return (
         <div>
+            <Header/>
             <Container className="whole-container">
 
                 <Row>
