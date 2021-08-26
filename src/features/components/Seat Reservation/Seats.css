@@ -1,0 +1,111 @@
+.seat_label {
+    font-weight: bold;
+}
+
+.seat_label::before {
+    white-space: pre;
+}
+
+.seat_label::after {
+    content: "\a";
+    white-space: pre;
+}
+
+.status_available {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 12px;
+    color: white;
+    background: #FF7700;
+    border-radius: 10px;
+    margin-right: 10px;
+
+}
+
+.status_sold_out {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 12px;
+    color: white;
+    background: #D3D3D3;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.status_selected {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 12px;
+    color: white;
+    background: #BD4F12;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+  
+.seat-container {
+    width: 380px;
+    margin: 50px auto auto auto;
+}
+  
+.grid div {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 5px;
+    font-size: 12px;
+    margin: 0 0 15px 15px
+}
+  
+.grid div:hover {
+    opacity: .7;
+    cursor: pointer;
+}
+  
+.selected {
+    background-color: #BD4F12;
+    color: #fff;
+    display: inline-block;
+}
+
+.available {
+    background-color: #FF7700;
+    color: #fff;
+}
+
+.sold_out {
+    background: #D3D3D3;
+}
+  
+li {
+    list-style: none;
+}
+
+.selected_seats_output.blank {
+    visibility: hidden;
+}
+
+.selected_seats_output.hasPicked {
+    border-width: 1px;
+    border-radius: 8px;
+    border-color: #BD4F12;
+    border-style: solid;
+    padding-top: 5px;
+    padding-left: 5px;
+    font-size: 13px;
+    margin-bottom: 30px;
+}
+
+.selected_seats_output.hasPicked ul {
+    color: #BD4F12;
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: 5px;
+}

@@ -6,6 +6,8 @@ const orderSlice = createSlice({
         cinema:null,
         movie:null,
         ScreeningTime:null,
+        price:null,
+        ticketQuantity:null,
         Seats:null,
         user: null
     },
@@ -20,11 +22,18 @@ const orderSlice = createSlice({
         AddUser(state, action){
             state.user = action.payload
             console.log(action);
+        },
+        ReserveTickets(state, action) {
+            state.price = action.payload.totalPrice;
+            state.ticketQuantity = action.payload.quantity;
+        },
+        SelectSeats(state, action) {
+            state.Seats = action.payload;
         }
     }
 })
 
-export const {SelectMovieAndCinema, SelectScreeningTime, AddUser} = orderSlice.actions;
+export const {SelectMovieAndCinema, SelectScreeningTime, AddUser, ReserveTickets, SelectSeats} = orderSlice.actions;
 
 export const getOrder = (state) => state.order
 

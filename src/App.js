@@ -14,6 +14,7 @@ import {getCinemas} from "./features/apis/cinemas";
 import {AddCinemas} from "./features/reducers/cinemaSlice";
 import {AddTrendings} from "./features/reducers/trendingSlice";
 import ScreenTimeCalendar from './features/components/TicketReservation/ScreenTimeCalendar';
+import SeatsSelection from './features/components/Seat Reservation/SeatsSelection';
 
 import Payment from './features/components/Payment/Payment';
 
@@ -61,6 +62,7 @@ function App() {
                     <Route exact path="/payment" component={Payment}></Route>
                     <Route exact path="/link2" component={Landing}></Route>
                     <Route exact path="/screening_time" component={ScreenTimeCalendar}></Route>
+                    <Route exact path="/seats_selection" component={SeatsSelection}></Route>
                     {/* <Route path="*" component={NotFoundPage}></Route> */}
                 </Switch>
             </BrowserRouter>
