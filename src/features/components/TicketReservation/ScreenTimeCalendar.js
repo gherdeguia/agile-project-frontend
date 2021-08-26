@@ -23,10 +23,10 @@ function ScreenTimeCalendar() {
     })
   })
 
-  
   const [isSelected, setIsSelected]  = useState(false);
   const [screeningTime, setScreeningTime] = useState('');
-  
+
+
 
   const fetchScreenTime = (screening) =>{
     const sTime = dateFormat(screening.movieDate,"yyyy mmm d" ) + " " + moment(screening.startTime,'HH:mm:ss').format("hh:mm A") + " - " + moment(screening.endTime,'HH:mm:ss').format("hh:mm A");
@@ -46,7 +46,7 @@ function ScreenTimeCalendar() {
   const [selectedScreeningTime, setSelectedScreeningTime] = useState('');
   
   const planSeats = () =>{
-    if (selectedScreeningTime != ""){
+    if (selectedScreeningTime !== ""){
       dispatch(SelectScreeningTime({selectedScreeningTime}));
     }
   }
@@ -56,7 +56,7 @@ function ScreenTimeCalendar() {
             <div className='container-calendar'>
               <h1 className='cinema-name'>{cinema.name}</h1>
               <h3 className='movie-name'>{movie.name}</h3>
-           
+
               <div className='screenTime-output'>
                 <h2 className='screenTime-title'>Selected Screening Time:</h2>
                 <div className='screenTime-value'>{screeningTime}</div>
@@ -82,13 +82,14 @@ function ScreenTimeCalendar() {
                 <div className='action-buttons'>
                 <Link to="/"><button className="cancel-button">CANCEL</button>
                 </Link>
-                <Link to="/">
-                <button className="plan-button" onClick={planSeats} disabled={selectedScreeningTime===''}>PLAN YOUR SEATS</button>
+                <Link to="/seats_selection">
+                <button className="plan-button"  onClick={planSeats} disabled={selectedScreeningTime===''}>PLAN YOUR SEATS</button>
                 </Link>
-          
+
                 </div>
             </div>
         </div>
     )
 }
+
 export default ScreenTimeCalendar

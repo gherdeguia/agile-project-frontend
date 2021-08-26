@@ -46,9 +46,30 @@ h2{
 
 .container-right{
     position: absolute;
+    width: 60%;
+}
+
+.card-body-right{
+    font-family: RobotoFont;
+    background-image: url(bgforsummary.png);
+    background-size: 100% 100%;
+    color: white;    
+    width: 50%;
+    padding-top: 25px;
+    padding-left: 15px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
 }
 
 .hr-width{
-    margin-left: 12px;
-    width: 300px;
+    width: 100%;
 }
+
+@font-face {
+    font-family: RobotoFont;
+    src: url(Roboto-Black.ttf);
+  }
