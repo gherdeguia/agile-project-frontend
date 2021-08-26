@@ -80,7 +80,7 @@ function ScreenTimeCalendar() {
                 <span className='action-buttons'>
                 <Link to="/"><button className="cancel-button">CANCEL</button>
                 </Link>
-                <Link to="/">
+                <Link to="/seats_selection">
                 <button className="plan-button"  onClick={planSeats}>PLAN YOUR SEATS</button>
                 </Link>
                 
