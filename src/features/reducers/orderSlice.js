@@ -34,9 +34,6 @@ const orderSlice = createSlice({
         AddOrder(state, action){
             state.payment = action.payload;
             console.log(`action.payload`, action.payload);
-        },
-        AddTicketNumber(state, action){
-            state.ticketNumber = action.payload;
         }
     }
 })
