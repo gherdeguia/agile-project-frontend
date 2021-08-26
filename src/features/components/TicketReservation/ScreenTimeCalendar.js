@@ -75,7 +75,7 @@ function ScreenTimeCalendar() {
             </span>))}
                 
                 <div className='screenTime-output'>
-                <h2>Selected Screening Time:</h2>
+                <h2 className='screenTime-title'>Selected Screening Time:</h2>
                 <div className='screenTime-value'>{screeningTime}</div>
                 </div>
                 
