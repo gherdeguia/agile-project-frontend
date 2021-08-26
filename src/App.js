@@ -7,11 +7,14 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faUserCircle} from "@fortawesome/free-solid-svg-icons";
 import 'antd/dist/antd.css';
 import {useEffect} from "react";
-import {getMovies} from "./features/apis/movies";
+import {getMovies, getTrendingMovies} from "./features/apis/movies";
 import {useDispatch} from "react-redux";
 import {AddMovies} from './features/reducers/moviesSlice'
 import {getCinemas} from "./features/apis/cinemas";
 import {AddCinemas} from "./features/reducers/cinemaSlice";
+import {AddTrendings} from "./features/reducers/trendingSlice";
+import ScreenTimeCalendar from './features/components/TicketReservation/ScreenTimeCalendar';
+
 
 function App() {
     const dispatch = useDispatch();
