@@ -5,6 +5,7 @@ import tomato from "./tomato.png"
 import popcorn from "./popcorn.png"
 import {SelectMovieAndCinema} from "../../reducers/orderSlice";
 import {useDispatch} from "react-redux";
+import {Link} from "react-router-dom";
 
 function MovieResult(props) {
     const movie = props.movie
@@ -45,10 +46,12 @@ function MovieResult(props) {
                     </div>
                     {
                         cinemas.map((cinema) => (
-                            <div key={cinema.id} className="card-cinema" onClick={() => selectCinema(cinema)}>
-                                <div><h4><b>{cinema.name}</b></h4></div>
-                                <p>location</p>
-                            </div>
+                            <Link key={cinema.id} to="/screening_time">
+                                <div  className="card-cinema" onClick={() => selectCinema(cinema)}>
+                                    <div><h4><b>{cinema.name}</b></h4></div>
+                                    <p>location</p>
+                                </div>
+                            </Link>
                         ))
                     }
                 </Col>
