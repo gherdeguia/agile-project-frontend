@@ -49,7 +49,6 @@ function MovieResult(props) {
                             <Link key={cinema.id} to="/screening_time">
                                 <div  className="card-cinema" onClick={() => selectCinema(cinema)}>
                                     <div><h4><b>{cinema.name}</b></h4></div>
-                                    <p>location</p>
                                 </div>
                             </Link>
                         ))

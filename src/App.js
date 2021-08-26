@@ -17,7 +17,6 @@ import ScreenTimeCalendar from './features/components/TicketReservation/ScreenTi
 
 import Payment from './features/components/Payment/Payment';
 
-
 function App() {
     const dispatch = useDispatch();
 
@@ -61,8 +60,6 @@ function App() {
                     <Route exact path="/" component={Landing}></Route>
                     <Route exact path="/payment" component={Payment}></Route>
                     <Route exact path="/link2" component={Landing}></Route>
-
-
                     <Route exact path="/screening_time" component={ScreenTimeCalendar}></Route>
                     {/* <Route path="*" component={NotFoundPage}></Route> */}
                 </Switch>

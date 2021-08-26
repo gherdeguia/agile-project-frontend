@@ -22,11 +22,9 @@ function ScreenTimeCalendar() {
     })
   })
 
-  
   const [isSelected, setIsSelected]  = useState(false);
   const [screeningTime, setScreeningTime] = useState('');
  
-
   const fetchScreenTime = (screening) =>{
     const sTime = dateFormat(screening.movieDate,"yyyy mmm d" ) + " " + screening.startTime + " " + screening.endTime;
     if (isSelected === true && screeningTime === sTime){
@@ -45,7 +43,7 @@ function ScreenTimeCalendar() {
   const [selectedScreeningTime, setSelectedScreeningTime] = useState('');
   
   const planSeats = () =>{
-    if (selectedScreeningTime != ""){
+    if (selectedScreeningTime !== ""){
       dispatch(SelectScreeningTime({selectedScreeningTime}));
     }
 
