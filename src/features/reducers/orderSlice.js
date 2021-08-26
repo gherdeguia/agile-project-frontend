@@ -14,14 +14,17 @@ const orderSlice = createSlice({
             state.cinema = action.payload.cinema
             state.movie = action.payload.movie
         },
+        SelectScreeningTime(state, action) {
+            state.screeningTime = action.payload
+        },
         AddUser(state, action){
             state.user = action.payload
             console.log(action);
-        }   
+        }
     }
 })
 
-export const {SelectMovieAndCinema, AddUser} = orderSlice.actions;
+export const {SelectMovieAndCinema, SelectScreeningTime, AddUser} = orderSlice.actions;
 
 export const getOrder = (state) => state.order
 
