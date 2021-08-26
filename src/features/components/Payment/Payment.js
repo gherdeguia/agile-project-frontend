@@ -15,8 +15,11 @@ import {
 import "./payment.css";
 import * as Icon from "react-bootstrap-icons";
 import {useDispatch} from "react-redux";
-import {AddUser} from "../../reducers/orderSlice";
+import {AddUser, getOrder} from "../../reducers/orderSlice";
 import {createPayment} from "../../apis/payment";
+import { useSelector } from "react-redux";
+import moment from "moment";
+import { Link } from "react-router-dom";
 
 function Payment() {
     const [value, setValue] = useState([1, 3]);
@@ -34,6 +37,19 @@ function Payment() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const selected = useSelector(getOrder);
+    const movie = selected.movie;
+    const cinema = selected.cinema;
+    const screening = selected.screeningTime.selectedScreeningTime;
+    const movieDate = screening.movieDate;
+    const endTime = screening.endTime;
+    const startTime = screening.startTime;
+    const quantity = selected.ticketQuantity
+    const totalPrice = selected.price
+    const seats = selected.Seats.seatSelected
+    
+    console.log(seats)
+
     const transactionDetails = {
         fullName: fname,
         email: email,
@@ -42,8 +58,8 @@ function Payment() {
         cardDetail: cardNum,
         cardExpiration: expiration,
         cardCode: cvv,
-        movieName: "Avengers",
-        cinemaName: "SM Lipa",
+        movieName: movie.name,
+        cinemaName: cinema.name,
         screeningDate: "2021-08-23",
         screeningStartTime: "19:00:00",
         screeningEndTime: "20:00:00",
@@ -174,9 +190,11 @@ function Payment() {
                                         </Row>
                                         <Row className="mb-3">
                                             <Form.Group className="mb-3" controlId="formGridAddress1">
-                                                <Button variant="warning" className="btn-submit" onClick={onPayment}>
+                                              <Link to="/receipt">
+                                              <Button variant="warning" className="btn-submit" onClick={onPayment}>
                                                     Make Payment
                                                 </Button>
+                                              </Link>
                                             </Form.Group>
                                         </Row>
                                     </Card>
@@ -187,21 +205,24 @@ function Payment() {
                     </Col>
 
                     <Col>
-                        <Container className="container-body">
-                            <Card className="card-body">
+                        <Container>
+                            <Card className="card-body-right">
 
                                 <Row className="mb-3">
                                     <h2>Booking Summary</h2>
                                     <Form.Group className="mb-3" controlId="formGridAddress1">
-                                        Movie Title
+                                        Movie Title:<br/> {movie.name}
                                     </Form.Group>
 
                                     <Form.Group className="mb-3" controlId="formGridAddress1">
-                                        Cinema Location
+                                        Cinema: {cinema.name}<br/>
+                                        <span>{moment(movieDate).format("MMMM D")}, </span>
+                                        <span>{moment(startTime,'HH:mm:ss').format("HH:mm")} - {moment(endTime,'HH:mm:ss').format("HH:mm a")}</span>
                                     </Form.Group>
 
                                     <Form.Group className="mb-3" controlId="formGridAddress1">
-                                        Number of Tickets
+                                        Number of Tickets: {quantity}<br/>
+                                        Seats {seats.map((seat, idx) => (<span key={idx}> {seat} </span>))} 
                                     </Form.Group>
                                     <hr className="hr-width"/>
                                     <Form.Group className="mb-3" controlId="formGridAddress1">
@@ -209,7 +230,7 @@ function Payment() {
                                     </Form.Group>
 
                                     <Form.Group className="mb-3" controlId="formGridAddress1">
-                                        PHP 0.00
+                                        PHP {totalPrice}
                                     </Form.Group>
 
                                 </Row>
