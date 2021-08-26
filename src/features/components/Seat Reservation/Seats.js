@@ -15,7 +15,7 @@ function Seats() {
 
     useEffect(() => {
         dispatch(SelectSeats({seatSelected}));
-    }, [seatSelected]);
+    });
 
     const onClickData = (seat) =>{
         if (seat.is_available) {
@@ -33,7 +33,6 @@ function Seats() {
     const hasSelected = seatSelected.length > 0 ? "hasPicked" : "blank";
     return (
         <div className="seat-container">
-            <h2></h2>
             <div className="grid">
                 {seat.map(row =>
                     <div
