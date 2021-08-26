@@ -1,3 +1,4 @@
+import Footer from '../Footer/Footer.js';
 import React from 'react'
 import SearchForm from "./SearchForm";
 import Trending from "./Trending";
@@ -7,6 +8,7 @@ function Landing() {
         <div>
             <Trending/>
             <SearchForm/>
+            <Footer/>
         </div>
     )
 }

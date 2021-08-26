@@ -7,6 +7,7 @@ import {getScreeningTime} from "../../apis/screeningtime";
 import {selectScreenings, AddScreenings} from "../../reducers/screeningSlice";
 import { Link } from 'react-router-dom';
 import dateFormat from 'dateformat';
+import moment from 'moment';
 
 function ScreenTimeCalendar() {
   const selected = useSelector(getOrder);
@@ -24,9 +25,11 @@ function ScreenTimeCalendar() {
 
   const [isSelected, setIsSelected]  = useState(false);
   const [screeningTime, setScreeningTime] = useState('');
- 
+
+
+
   const fetchScreenTime = (screening) =>{
-    const sTime = dateFormat(screening.movieDate,"yyyy mmm d" ) + " " + screening.startTime + " " + screening.endTime;
+    const sTime = dateFormat(screening.movieDate,"yyyy mmm d" ) + " " + moment(screening.startTime,'HH:mm:ss').format("hh:mm A") + " - " + moment(screening.endTime,'HH:mm:ss').format("hh:mm A");
     if (isSelected === true && screeningTime === sTime){
       setScreeningTime("");
       setIsSelected(false);
@@ -46,15 +49,18 @@ function ScreenTimeCalendar() {
     if (selectedScreeningTime !== ""){
       dispatch(SelectScreeningTime({selectedScreeningTime}));
     }
-
   }
-
 
     return (
         <div>
             <div className='container-calendar'>
-              <h1>{cinema.name}</h1>
-              <h3>{movie.name}</h3>
+              <h1 className='cinema-name'>{cinema.name}</h1>
+              <h3 className='movie-name'>{movie.name}</h3>
+
+              <div className='screenTime-output'>
+                <h2 className='screenTime-title'>Selected Screening Time:</h2>
+                <div className='screenTime-value'>{screeningTime}</div>
+                </div>
 
             <div className="labels">
               <span className="available-time">Available</span>
@@ -62,29 +68,24 @@ function ScreenTimeCalendar() {
               <span className="selected-time">Selected</span>
             </div>
 
-                <div className='ant-calendar'>
-
+            <div className='item-container'>
             {screenings.map((screening) => (
-            
-            <span key={screening.id} className='screentime-button'>
+            <div key={screening.id} className='screentime-button'>
               <button className="screeningTime-button" disabled={screening.availableSeats==='0'} onClick= {() => fetchScreenTime(screening)}>
-               { dateFormat(screening.movieDate,"yyyy mmm d")+ "   " + screening.startTime + " " + screening.endTime}
+               <div className='movie-date'>{dateFormat(screening.movieDate,"yyyy mmm d")} </div>
+               <hr className='break-line'></hr>
+               <div className='movie-time'>{moment(screening.startTime,'HH:mm:ss').format("hh:mm A") + " - " + moment(screening.endTime,'HH:mm:ss').format("hh:mm A")}</div>
               </button>
-            </span>))}
-                
-                <div className='screenTime-output'>
-                <h2 className='screenTime-title'>Selected Screening Time:</h2>
-                <div className='screenTime-value'>{screeningTime}</div>
-                </div>
-                
-                <span className='action-buttons'>
+            </div>))}
+            </div>
+
+                <div className='action-buttons'>
                 <Link to="/"><button className="cancel-button">CANCEL</button>
                 </Link>
                 <Link to="/seats_selection">
-                <button className="plan-button"  onClick={planSeats}>PLAN YOUR SEATS</button>
+                <button className="plan-button"  onClick={planSeats} disabled={selectedScreeningTime===''}>PLAN YOUR SEATS</button>
                 </Link>
-                
-                </span>
+
                 </div>
             </div>
         </div>
