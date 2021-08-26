@@ -31,7 +31,7 @@ function CinemaResult(props) {
                                     <Card.Body>
                                         <div>
                                             <img className="movie-poster-cinema" src={movie.poster} alt={movie.name}/>
-                                            <Link to="/screenings">
+                                            <Link to="/screening_time">
                                                 <button className="book-ticket-btn"
                                                         onClick={() => selectMovie(movie)}>Book Ticket
                                                 </button>
