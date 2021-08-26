@@ -9,7 +9,6 @@ function CinemaResult(props) {
 
     const cinema = props.cinema
     const movies = cinema.movies
-
     const dispatch = useDispatch()
 
     function selectMovie(movie) {
@@ -42,8 +41,6 @@ function CinemaResult(props) {
                             ))}
                         </Card.Body>
                     </Card>
-
-
                 </Col>
             </Row>
         </Container>
