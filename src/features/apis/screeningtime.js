@@ -1,5 +1,5 @@
 import api from "./api"
 
-export const getScreeningTime = () => {
-    return api.get("/screening");
+export const getScreeningTime = (cinemaId, movieName) => {
+    return api.get(`/screenings/${cinemaId}/${movieName}`);
 }
