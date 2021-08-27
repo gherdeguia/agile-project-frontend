@@ -3,7 +3,7 @@ import {selectTrendings} from "../../reducers/trendingSlice";
 import {useSelector} from "react-redux";
 import Slider from "react-slick";
 import "./Trending.css"
-import {faArrowLeft, faArrowRight} from "@fortawesome/free-solid-svg-icons";
+import {faAngleRight, faAngleLeft} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function Trending() {
@@ -13,7 +13,7 @@ function Trending() {
     const NextArrow = ({onClick}) => {
         return (
             <div className="arrow next" onClick={onClick}>
-                <FontAwesomeIcon icon={faArrowRight}/>
+                <FontAwesomeIcon icon={faAngleRight}/>
             </div>
         )
     }
@@ -21,7 +21,7 @@ function Trending() {
     const PrevArrow = ({onClick}) => {
         return (
             <div className="arrow prev" onClick={onClick}>
-                <FontAwesomeIcon icon={faArrowLeft}/>
+                <FontAwesomeIcon icon={faAngleLeft}/>
             </div>
         )
     }
