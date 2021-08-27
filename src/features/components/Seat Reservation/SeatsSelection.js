@@ -7,6 +7,7 @@ import { InputNumber, Button } from 'antd';
 import moment from "moment";
 import { Link } from "react-router-dom";
 import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 function SeatsSelection() {
     const dispatch = useDispatch();
@@ -58,6 +59,9 @@ function SeatsSelection() {
                 <Link to="/payment">
                 <Button className="proceed_btn" type="primary" shape="round" onClick={sendSeatDetails}>Proceed</Button>
                 </Link>
+            </div>
+            <div style={{marginTop: '100px'}}>
+                <Footer/>
             </div>
         </div>
     )
