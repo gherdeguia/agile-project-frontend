@@ -37,13 +37,12 @@ function SeatsSelection() {
     return (
         <div>
             <Header/>
-            <div className="seats_page">
-                
+            <div className="seats_page" style={{zoom: '1.3' }}>
+
                 <span className="movie">{movie.name}</span>
                 <span className="cinema">{cinema.name}</span>
                 <span className="date">{moment(movieDate).format("MMMM D")}</span>
-                <span className="time">{moment(startTime,'HH:mm:ss').format("HH:mm")} - {moment(endTime,'HH:mm:ss').format("HH:mm a")}</span>
-                <hr></hr>
+                <span className="time">{moment(startTime,'HH:mm:ss').format("HH:mm")} - {moment(endTime,'HH:mm:ss').format("HH:mm a")}</span>                <hr></hr>
                 <h6 className="ticket_qty">Ticket Quantity</h6>
                 <InputNumber className="ticket_input" size="small" min={0} defaultValue={0} onChange={changeTicketQuantity} value={quantity}></InputNumber>
                 <span className="total_price">TOTAL PRICE: PHP {totalPrice}</span>

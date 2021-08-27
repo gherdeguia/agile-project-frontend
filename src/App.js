@@ -13,6 +13,8 @@ import ScreenTimeCalendar from './features/components/TicketReservation/ScreenTi
 import SeatsSelection from './features/components/Seat Reservation/SeatsSelection';
 import Receipt from './features/components/Payment/Receipt';
 import Payment from './features/components/Payment/Payment';
+import Header from "./features/components/Header/Header";
+import Footer from "./features/components/Footer/Footer";
 
 function App() {
     const dispatch = useDispatch();
