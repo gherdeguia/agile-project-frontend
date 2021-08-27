@@ -60,7 +60,7 @@ function SeatsSelection() {
                 <Button className="proceed_btn" type="primary" shape="round" onClick={sendSeatDetails}>Proceed</Button>
                 </Link>
             </div>
-            <div style={{marginTop: '100px'}}>
+            <div style={{marginTop: '-180px'}}>
                 <Footer/>
             </div>
         </div>

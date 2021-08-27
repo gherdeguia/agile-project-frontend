@@ -9,6 +9,7 @@ import {Link} from 'react-router-dom';
 import dateFormat from 'dateformat';
 import moment from 'moment';
 import Header from '../Header/Header';
+import Footer from "../Footer/Footer";
 
 
 function ScreenTimeCalendar() {
@@ -91,6 +92,9 @@ function ScreenTimeCalendar() {
                         </button>
                     </Link>
                 </div>
+            </div>
+            <div style={{marginTop: '940px'}}>
+                <Footer/>
             </div>
         </div>
     )
