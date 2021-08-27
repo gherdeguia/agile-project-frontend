@@ -24,12 +24,12 @@ function Receipt() {
 
     return(
         <div>
-        <Header/>
         <Container className = "ticket-parent">
+            <Header/>
             <Row>
-                <h1>THANK YOU for your purchase</h1>
+                <h1>Thank you for your purchase!</h1>
             </Row>
-            <Row> 
+            <Row>
                 <Col>
                     <div className = "ticket-wrapper">
                     <div className = "ticket-header">MOVIE TICKET</div>
@@ -48,7 +48,9 @@ function Receipt() {
                 </Col>
             </Row>
         </Container>
-        <Footer/>
+            <div style={{marginTop: '210px'}}>
+                <Footer/>
+            </div>
         </div>
     );
 }

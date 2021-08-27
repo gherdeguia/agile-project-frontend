@@ -107,8 +107,7 @@ function Payment(props) {
     return (
         <div>
             <Header/>
-            <Container className="whole-container">
-
+            <Container className="whole-container" style={{marginLeft:"25%"}}>
                 <Row>
                     <Col>
                         <Container className="container-body">
