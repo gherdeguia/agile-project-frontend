@@ -24,7 +24,7 @@ function Receipt() {
             <Container className="ticket-parent">
                 <Header/>
                 <Row>
-                    <h1>THANK YOU for your purchase</h1>
+                    <h1>Thank you for your purchase!</h1>
                 </Row>
                 <Row>
                     <Col>
