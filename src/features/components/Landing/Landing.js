@@ -4,10 +4,6 @@ import SearchForm from "./SearchForm";
 import Trending from "./Trending"
 import Header from "../Header/Header";
 import background from "./movie-bg.png";
-import {Container} from "react-bootstrap";
-
-// import "../Landing/Landing.css";
-
 
 
 function Landing() {

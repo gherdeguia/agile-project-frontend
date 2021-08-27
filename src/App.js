@@ -1,10 +1,6 @@
 import './App.css';
-import logo from "./logo.png";
 import Landing from './features/components/Landing/Landing';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import {Container, Nav, Navbar} from "react-bootstrap";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faUserCircle} from "@fortawesome/free-solid-svg-icons";
 import 'antd/dist/antd.css';
 import {useEffect} from "react";
 import {getMovies, getTrendingMovies} from "./features/apis/movies";
