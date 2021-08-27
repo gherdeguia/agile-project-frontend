@@ -39,15 +39,16 @@ function Trending() {
         centerMode: true,
         nextArrow: <NextArrow/>,
         prevArrow: <PrevArrow/>,
-        beforeChange: (current,next) => setImageIndex(next)
+        beforeChange: (current, next) => setImageIndex(next)
     };
 
     return (
         <div className="trending-div">
-            <h3><b>Trending</b> Movies</h3>
+            <h3 style={{color:"white" , opacity:"1"}}><b >Trending</b><span style={{fontWeight:"200"}}> Movies</span></h3>
+            <hr style={{color:"white", height:"2px", width:"150px",margin:"auto", marginBottom:"20px", opacity:"1"}}/>
             <Slider {...settings}>
                 {
-                    trendingList.map((movie,idx) => (
+                    trendingList.map((movie, idx) => (
                         <div key={movie.id} className={idx === imageIndex ? "slide activeSlide" : "slide"}>
                             <img style={{width: "inherit"}}
                                  src={movie.poster}
