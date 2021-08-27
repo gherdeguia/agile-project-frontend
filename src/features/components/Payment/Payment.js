@@ -20,6 +20,7 @@ import { useSelector } from "react-redux";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 function Payment(props) {
     const [value, setValue] = useState([1, 3]);
@@ -234,6 +235,9 @@ function Payment(props) {
                 </Row>
 
             </Container>
+            <div style={{marginTop: '100px'}}>
+                <Footer/>
+            </div>
         </div>
     );
 }
