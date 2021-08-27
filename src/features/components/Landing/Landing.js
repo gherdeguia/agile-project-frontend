@@ -14,7 +14,7 @@ function Landing() {
     return (
         <div>
             <Header/>
-            <div className="landing-wrapper" style={{backgroundImage: `url(${background})`, backgroundSize: '100%', backgroundRepeat: 'no-repeat'}}> 
+            <div className="landing-wrapper" style={{backgroundImage: `url(${background})`, backgroundSize: '100%'}}> 
                 <Trending/>
                 <SearchForm/>
                 <Footer/>
